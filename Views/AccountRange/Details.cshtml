@@ -1,0 +1,66 @@
+﻿@model ScheduleManagement.Models.AccountRange
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AccountRange</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MasterSchedule.ScheduleID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MasterSchedule.ScheduleID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostCenterFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostCenterFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostCenterTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostCenterTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NaturalAccountFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NaturalAccountFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NaturalAccountTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NaturalAccountTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Org)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Org)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AccountRangeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

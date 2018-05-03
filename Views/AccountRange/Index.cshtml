@@ -1,0 +1,90 @@
+﻿@model IEnumerable<ScheduleManagement.Models.AccountRange>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="accountRangeTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MasterSchedule.ScheduleID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MasterSchedule.ScheduleDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostCenterFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostCenterTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NaturalAccountFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NaturalAccountTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Org)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MasterSchedule.ScheduleID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MasterSchedule.ScheduleDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostCenterFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostCenterTo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NaturalAccountFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NaturalAccountTo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Org)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AccountRangeID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.AccountRangeID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AccountRangeID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts
+{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#accountRangeTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5', 'excelHtml5', 'pdfHtml5', 'csvHtml5'
+                ]
+            });
+        });
+    </script>
+
+}

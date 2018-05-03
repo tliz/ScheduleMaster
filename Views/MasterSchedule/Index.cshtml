@@ -1,0 +1,126 @@
+﻿@*@model IEnumerable<ScheduleManagement.Models.MasterSchedule>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduleID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduleDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasReport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinorScheduleID)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduleDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasReport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinorScheduleID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MasterScheduleID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MasterScheduleID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MasterScheduleID })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+
+@model IEnumerable<ScheduleManagement.ViewModels.MasterScheduleViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="master_schedule_table" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduleID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduleDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinorScheduleDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasReport)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScheduleID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScheduleDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MinorScheduleDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasReport)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MS_VM_ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MS_VM_ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MS_VM_ID })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@section Scripts
+{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#master_schedule_table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'pageLength', 'copy', 'csv', 'excel', 'print'
+                ]
+            });
+        });
+    </script>
+
+}

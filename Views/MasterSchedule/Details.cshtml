@@ -1,0 +1,50 @@
+﻿@model ScheduleManagement.Models.MasterSchedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MasterSchedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasReport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasReport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinorScheduleID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinorScheduleID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MasterScheduleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
